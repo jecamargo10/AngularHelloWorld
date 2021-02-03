@@ -1,10 +1,10 @@
-Tutorial Random Angular
+## Angular Tutorial
 
-* 1. Install angular globally
+ 1. Install angular globally
 ```
 npm install -g @angular/cli
 ```
-* 2. Create new angular front
+2. Create new angular front
 ```
  ng new front 
 ```
