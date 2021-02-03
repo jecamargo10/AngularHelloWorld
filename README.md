@@ -1,32 +1,40 @@
 Tutorial Random Angular
 
-1. Install angular globally
+* 1. Install angular globally
 ```
 npm install -g @angular/cli
 ```
-2. Create new angular front
+* 2. Create new angular front
+```
  ng new front 
+```
 3. Test the local deployment
+```
 ng serve --host 0.0.0.0 --port 8080
+```
 4. Edit the file src/app/app.module.ts 	
   4.1 Add the following imports
+  ```
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+```
 4.2 Add that module in `@NgModule` imports.
+```
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
     …
-  ],
+  ]
+```
 The modulo HttpClient should be available in angular
 5. While angular is stop (stop with control+C) create the angular service
+```
 ng g service rest
+```
 6. Edit the file with the name of the service ( in my case: rest.services.ts) 
-
+```
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -48,8 +56,9 @@ export class RestService {
   }
 
 }
-
+```
 7. Replace the app.component.ts
+```
 import { Component, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RestService } from './rest.service';
@@ -92,6 +101,7 @@ export class AppComponent implements OnDestroy {
     this.destroy$.unsubscribe();
   }
 }
+```
 8. Replace the app.component.html
 ```html
 <div class="container">
@@ -129,13 +139,16 @@ export class AppComponent implements OnDestroy {
 ```
 
 9. For proxy between angular and nodes in development define the following file proxy.conf.json in main angular folder
+```
 {
   "/api": {
     "target": "http://localhost:3080",
     "secure": false
   }
 }
+```
 10. Edit the file angular.json under the architect:server:options, add the proxyConfig for routing
+```
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
@@ -143,8 +156,9 @@ export class AppComponent implements OnDestroy {
             "proxyConfig": "proxy.conf.json"
 
           },
-
+```
 11. Test
-
-
+```
+npm run dev   
+```
 
