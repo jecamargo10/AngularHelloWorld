@@ -1,7 +1,9 @@
 Tutorial Random Angular
 
-1. Install angular globally 
+1. Install angular globally
+```
 npm install -g @angular/cli
+```
 2. Create new angular front
  ng new front 
 3. Test the local deployment
@@ -91,6 +93,7 @@ export class AppComponent implements OnDestroy {
   }
 }
 8. Replace the app.component.html
+```html
 <div class="container">
   <div class="row">
     <div class="col-md-7 mrgnbtm">
@@ -123,8 +126,7 @@ export class AppComponent implements OnDestroy {
     </div>
   </div>
 </div>
-
-
+```
 
 9. For proxy between angular and nodes in development define the following file proxy.conf.json in main angular folder
 {
