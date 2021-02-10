@@ -6,6 +6,8 @@ const app = express(),
 const users = [];
 
 app.use(bodyParser.json());
+app.use(express.static(process.cwd()+"/front/dist/front/"));
+
 
 app.get('/api/users', (req, res) => {
   res.json(users);
@@ -18,7 +20,7 @@ app.post('/api/user', (req, res) => {
 });
 
 app.get('/', (req,res) => {
-    res.send('App Works !!!!');
+  res.sendFile(process.cwd()+"/front/dist/front/index.html")
 });
 
 app.listen(port, () => {

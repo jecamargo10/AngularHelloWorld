@@ -161,4 +161,30 @@ export class AppComponent implements OnDestroy {
 ```
 npm run dev   
 ```
+### Pass to production
+12. Build the angular project inside the folder of you angular app, it will create a dist folder
+```
+npm run build
+```
+13. Include the following line in the server.js (with your angular app folder) after the set up of app:
+```
+app.use(express.static(process.cwd()+"/YOUR_ANGULAR_FOLDER/dist/YOUR_ANGULAR_PROJECT_NAME/"));
 
+```
+14. Change the method get ("/") from this
+```
+app.get('/', (req,res) => {
+    res.send('App Works !!!!');
+});
+```
+to this:
+```
+app.get('/', (req,res) => {
+  res.sendFile(process.cwd()+"/YOU_ANGULAR_FOLDER/dist/YOUR_ANGULAR_PROJECT_NAME/index.html")
+});
+```
+
+15. Test again only running the nodejs server
+```
+npm run dev
+```
